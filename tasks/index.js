@@ -1,3 +1,5 @@
+"use strict";
+
 var fs = require('fs');
 var Q = require('q');
 
@@ -32,7 +34,7 @@ module.exports = function (grunt) {
 
                 for (var i = 0; i < arr.length; i++) {
                     var obj = arr[i];
-                    for( key in obj ){
+                    for( var key in obj ){
                         data[x][key] = obj[key];
                     }
                 }
