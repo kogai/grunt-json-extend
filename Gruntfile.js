@@ -7,28 +7,22 @@ module.exports = function(grunt) {
 			src: './json/test-before.json',
 			dest: './json/test-after.json',
 			callbacks: [
-				{
-					val: [
-						'gender'
-					],
-					callback: function( val, obj ){
+				function( obj ){
 
-						var gender = val[0];
-						var res = '';
+					var res = '';
 
-					    switch( obj[gender] ){
-					        case 'male':
-					            res += '男';
-					            break;
-					        case 'female':
-					            res += '女';
-					            break;
-					    }
+				    switch( obj.gender ){
+				        case 'male':
+				            res += '男';
+				            break;
+				        case 'female':
+				            res += '女';
+				            break;
+				    }
 
-						return {
-							"query_gender": res
-						};
-					}
+					return {
+						"query_gender": res
+					};
 				}
 			]
 		}

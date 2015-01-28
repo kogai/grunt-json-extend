@@ -27,8 +27,7 @@ module.exports = function (grunt) {
 
                 var arr = [];
                 for (var i = 0; i < callbacks.length; i++ ) {
-                    var val = callbacks[i].val;
-                    var result = callbacks[i].callback( val, data[x] );
+                    var result = callbacks[i]( data[x] );
                     arr.push(result);
                 }
 
