@@ -21,12 +21,22 @@ module.exports = function (grunt) {
         var runTask = function( data ){
             var d = Q.defer();
             var arr = [];
-            for (var i = 0; i < data.length; i++) {
-                var obj = makeMethods(data[i]);
-                arr.push(obj);
+            for (var i = 0; i < callbacks.length; i++ ) {
+                var val = callbacks[i].val;
+                var result = callbacks[i].callback(val);
+                arr.push(result);
             }
-            d.resolve(arr);
+
+            for (var i = 0; i < arr.length; i++) {
+                var obj = arr[i];
+                for( key in obj ){
+                    data[key] = obj[key];
+                }
+            }
+
+            d.resolve(data);
             return d.promise;
+
         };
 
         var writeJson = function( data ){
@@ -39,7 +49,7 @@ module.exports = function (grunt) {
         var jsonHundler = function(){
             Q.when([])
             .then(readJson)
-            // .then(runTask)
+            .then(runTask)
             .done(writeJson);
         };
 
@@ -47,11 +57,6 @@ module.exports = function (grunt) {
 
     });
 };
-
-//
-//
-//
-//
 
 // var makeMethods = function( obj ){
 //

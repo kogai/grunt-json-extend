@@ -4,14 +4,30 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		jsonExtend: {
-			src: './src/js/lib/Staff.json',
-			dest: './build/public/js/Staff.json',
+			src: './json/test-before.json',
+			dest: './json/test-after.json',
 			callbacks: [
-				function( srcProperty, destProperty ){
-
+				{
+					val: [
+						'bar',
+						'foo'
+					],
+					callback: function( val ){
+						return {
+							"foobaz": val[0] + val[1]
+						};
+					}
 				},
-				function( srcProperty, destProperty ){
-
+				{
+					val: [
+						'foo',
+						'bar'
+					],
+					callback: function( val ){
+						return {
+							"baz": val[0] + val[1]
+						};
+					}
 				}
 			]
 		}
