@@ -62,21 +62,3 @@ module.exports = function (grunt) {
 
     });
 };
-
-
-/*----------------------
-
-obj.query_gender = (function( gender ){
-    var res = '';
-    switch( gender ){
-        case 'male':
-            res += '男';
-            break;
-        case 'female':
-            res += '女';
-            break;
-    }
-    return res;
-})(obj.gender);
-
-----------------------*/

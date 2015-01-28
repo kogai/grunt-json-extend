@@ -9,12 +9,24 @@ module.exports = function(grunt) {
 			callbacks: [
 				{
 					val: [
-						'foo'
+						'gender'
 					],
 					callback: function( val, obj ){
-                        var result = val[0] + ' + ' + obj[val[0]];
+
+						var gender = val[0];
+						var res = '';
+
+					    switch( obj[gender] ){
+					        case 'male':
+					            res += '男';
+					            break;
+					        case 'female':
+					            res += '女';
+					            break;
+					    }
+
 						return {
-							"baz": result
+							"query_gender": res
 						};
 					}
 				}
