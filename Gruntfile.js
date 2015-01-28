@@ -9,17 +9,6 @@ module.exports = function(grunt) {
 			callbacks: [
 				{
 					val: [
-						'bar',
-						'foo'
-					],
-					callback: function( val ){
-						return {
-							"foobaz": val[0] + val[1]
-						};
-					}
-				},
-				{
-					val: [
 						'foo',
 						'bar'
 					],
