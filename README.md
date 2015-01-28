@@ -50,8 +50,11 @@ module.exports = function(grunt) {
 						'foo',
 						'bar'
 					],
-					callback: function( val ){
-                        var result = val[0] + val[1];
+					callback: function( val, obj ){
+                        // val is variables array as you want.
+                        // obj is each object from src.
+
+                        var result = val[0] + '+' + obj[val[0]];
 
                         // return object, you want to add for json file.
 						return {

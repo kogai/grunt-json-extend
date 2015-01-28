@@ -20,23 +20,26 @@ module.exports = function (grunt) {
 
         var runTask = function( data ){
             var d = Q.defer();
-            var arr = [];
-            for (var i = 0; i < callbacks.length; i++ ) {
-                var val = callbacks[i].val;
-                var result = callbacks[i].callback(val);
-                arr.push(result);
-            }
+            for (var x = 0; x < data.length; x++) {
+                data[x];
 
-            for (var i = 0; i < arr.length; i++) {
-                var obj = arr[i];
-                for( key in obj ){
-                    data[key] = obj[key];
+                var arr = [];
+                for (var i = 0; i < callbacks.length; i++ ) {
+                    var val = callbacks[i].val;
+                    var result = callbacks[i].callback( val, data[x] );
+                    arr.push(result);
                 }
-            }
 
+                for (var i = 0; i < arr.length; i++) {
+                    var obj = arr[i];
+                    for( key in obj ){
+                        data[x][key] = obj[key];
+                    }
+                }
+
+            }
             d.resolve(data);
             return d.promise;
-
         };
 
         var writeJson = function( data ){
@@ -58,93 +61,20 @@ module.exports = function (grunt) {
     });
 };
 
-// var makeMethods = function( obj ){
-//
-//     obj.link = (function(company){
-//         var res = company ;
-//         switch( company ){
-//             case 'ghonsha':
-//                 res = "b_group" ;
-//                 break;
-//             case 'seifun':
-//                 res = "c_" + res ;
-//                 break;
-//             case 'foods':
-//                 res = "d_" + res ;
-//                 break;
-//             case 'pharma':
-//                 res = "e_" + res ;
-//                 break;
-//             case 'petfood':
-//                 res = "f_" + res ;
-//                 break;
-//             case 'engineering':
-//                 res = "g_" + res ;
-//                 break;
-//             case 'oriental':
-//                 res = "h_" + res ;
-//                 break;
-//         }
-//         return res;
-//     })(obj.company);
-//
-//     obj.query_job = (function( job ){
-//         var res;
-//         switch( job ){
-//             case 'clerk':
-//                 res = '事務';
-//                 break;
-//             case 'chemistry':
-//                 res = '食品化学';
-//                 break;
-//             case 'engineer':
-//                 res = '工学';
-//                 break;
-//         }
-//         return res;
-//     })(obj.job);
-//
-//     obj.query_company = (function( company ){
-//         var res = company ;
-//         switch( company ){
-//             case 'ghonsha':
-//                 res = "日清製粉グループ";
-//                 break;
-//             case 'seifun':
-//                 res = "日清製粉";
-//                 break;
-//             case 'foods':
-//                 res = "日清フーズ";
-//                 break;
-//             case 'pharma':
-//                 res = "日清ペットフード";
-//                 break;
-//             case 'petfood':
-//                 res = "日清エンジニアリング";
-//                 break;
-//             case 'engineering':
-//                 res = "日清ファルマ";
-//                 break;
-//             case 'oriental':
-//                 res = "オリエンタル酵母工業";
-//                 break;
-//         }
-//         return res;
-//     })(obj.company);
-//
-//     obj.query_gender = (function( gender ){
-//         var res = '';
-//         switch( gender ){
-//             case 'male':
-//                 res += '男';
-//                 break;
-//             case 'female':
-//                 res += '女';
-//                 break;
-//         }
-//         return res;
-//     })(obj.gender);
-//
-//     return obj;
-// };
-//
+
+/*----------------------
+
+obj.query_gender = (function( gender ){
+    var res = '';
+    switch( gender ){
+        case 'male':
+            res += '男';
+            break;
+        case 'female':
+            res += '女';
+            break;
+    }
+    return res;
+})(obj.gender);
+
+----------------------*/
