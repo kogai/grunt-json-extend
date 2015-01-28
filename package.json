@@ -18,5 +18,8 @@
   "homepage": "https://github.com/kogai/grunt-json-extend",
   "devDependencies": {
     "grunt": "^0.4.5"
+  },
+  "dependencies": {
+    "q": "^1.1.2"
   }
 }
