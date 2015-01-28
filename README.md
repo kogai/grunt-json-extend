@@ -44,23 +44,15 @@ module.exports = function(grunt) {
             // write callback functions as array,
             // to extend your object's property.
 			callbacks: [
-				{
-                    // set variables pass to callback function.
-					val: [
-						'foo',
-						'bar'
-					],
-					callback: function( val, obj ){
-                        // val is variables array as you want.
-                        // obj is each object from src.
+				function( obj ){
+                    // obj is each object from src.
 
-                        var result = val[0] + '+' + obj[val[0]];
+                    var result = 'foo' + '+' + obj.foo;
 
-                        // return object, you want to add for json file.
-						return {
-							"baz": result
-						};
-					}
+                    // return object, you want to add for json file.
+					return {
+						"baz": result
+					};
 				}
 			]
 		}
