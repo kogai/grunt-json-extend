@@ -1,6 +1,6 @@
 {
   "name": "grunt-json-extend",
-  "version": "0.0.4",
+  "version": "0.0.4.1",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,9 +9,16 @@
     "type": "git",
     "url": "https://github.com/kogai/grunt-json-extend.git"
   },
-  "keyword": "gruntplugin",
-  "author": "",
-  "license": "ISC",
+  "keyword": [
+      "gruntplugin",
+      "json"
+  ],
+  "author": {
+    "name": "Shinichi Kogai",
+    "email": "kogai0121@gmail.com",
+    "url": "https://github.com/kogai"
+  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/kogai/grunt-json-extend/issues"
   },
