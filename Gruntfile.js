@@ -19,7 +19,6 @@ module.exports = function(grunt) {
 				            res += '女';
 				            break;
 				    }
-
 					return {
 						"query_gender": res
 					};
