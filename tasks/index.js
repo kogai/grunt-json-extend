@@ -28,6 +28,9 @@ module.exports = function (grunt) {
                 var arr = [];
                 for (var i = 0; i < callbacks.length; i++ ) {
                     var result = callbacks[i]( data[x] );
+                    if( typeof result !== 'object' ){
+                        throw '\nCallback function expect return the object.\nReturn value is ' + result ;
+                    }
                     arr.push(result);
                 }
 
