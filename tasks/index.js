@@ -49,7 +49,9 @@ module.exports = function (grunt) {
         var writeJson = function( data ){
             var obj = JSON.stringify(data, null, 4);
             fs.writeFile( dest, obj, function( err ){
+                if( err ) throw err;
                 console.log('json file saved.');
+                done();
             })
         };
 
