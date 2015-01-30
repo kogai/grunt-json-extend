@@ -55,14 +55,14 @@ module.exports = function (grunt) {
             })
         };
 
-        var jsonHundler = function(){
+        var hundleJson = function(){
             Q.when([])
             .then(readJson)
             .then(runTask)
             .done(writeJson);
         };
 
-        jsonHundler();
+        hundleJson();
 
     });
 };
