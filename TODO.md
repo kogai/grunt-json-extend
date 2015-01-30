@@ -1,0 +1,3 @@
+- [ ] write test code.
+- [ ] add useful callback functions (maybe).
+- [ ] multiple json files support.
