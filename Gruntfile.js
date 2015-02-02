@@ -4,8 +4,8 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		jsonExtend: {
-			src: './json/test-before.json',
-			dest: './json/test-after.json',
+			src: './test/json/test-before.json',
+			dest: './test/json/test-after.json',
 			callbacks: [
 				function( obj ){
 
